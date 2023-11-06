@@ -1,9 +1,10 @@
+
 import numpy as np
 import seaborn as sns
 import shap
 from matplotlib import pyplot as plt
 from sklearn.calibration import CalibrationDisplay
-from sklearn.metrics import auc, precision_recall_curve, average_precision_score, plot_roc_curve, plot_precision_recall_curve, \
+from sklearn.metrics import auc, precision_recall_curve, average_precision_score, RocCurveDisplay, precision_recall_curve, \
     ConfusionMatrixDisplay, PrecisionRecallDisplay
 from sweetviz import compare, analyze
 import os.path as pth
@@ -11,7 +12,6 @@ import warnings
 #001C7F, #D62728, #017517, #8C0900, #7600A1, #B8860B, #FF7F0E
 dpi = 300
 colors = ['#001C7F', '#D62728', '#017517', '#8C0900', '#7600A1', '#B8860B', '#FF7F0E']
-
 
 model_name_replacements = {
     'DecisionTreeClassifier': 'Decision tree',
@@ -398,3 +398,5 @@ def plot_calibration_curves(X_test, y_test, endpoint, model, model_name, out_dir
     plt.savefig(f'{out_dir}/{endpoint}/test/{model_name}_calibration'.replace(' ', '_'), dpi=dpi)
     plt.close()
     sns.reset_orig()
+
+# %%
