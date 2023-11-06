@@ -1,10 +1,9 @@
 # Author: Will Koehrsen
 # Code available at https://github.com/WillKoehrsen/feature-selector/blob/master/feature_selector/feature_selector.py
-
 import pandas as pd
 import numpy as np
 
-import lightgbm as lgb
+import lightbeam as lgb
 
 from sklearn.model_selection import train_test_split
 
@@ -544,3 +543,4 @@ class FeatureSelector:
 
     def reset_plot(self):
         plt.rcParams = plt.rcParamsDefault
+# %%
