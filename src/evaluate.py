@@ -1,10 +1,11 @@
-import os
 
+#%%
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 from imblearn.over_sampling import SMOTE, ADASYN, RandomOverSampler
 from sklearn.feature_selection import SelectFromModel, SelectKBest
-from sklearn.metrics import ConfusionMatrixDisplay, auc, plot_precision_recall_curve, plot_roc_curve
+from sklearn.metrics import ConfusionMatrixDisplay, auc, precision_recall_curve, RocCurveDisplay
 from sklearn.model_selection import GridSearchCV, LeaveOneOut, StratifiedKFold
 from imblearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
@@ -187,3 +188,5 @@ def evaluate_single_model(model, param_grid,
     test_metrics, test_curves = test_classification_model(best_model, X_train, y_train, X_test, y_test,
                                                           model_name, select_features, out_dir)
     return cv_metrics, test_metrics, ((mean_tpr, overall_precision, overall_recall), test_curves)
+
+# %%
