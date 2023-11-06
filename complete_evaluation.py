@@ -1,3 +1,5 @@
+
+#%% import modules
 import argparse
 import os
 import json
@@ -16,7 +18,7 @@ from src.evaluate import evaluate_single_model
 from src.utils.metrics import all_classification_metrics_list
 from src.utils.plot import boxplot, plot_summary_roc_pr, plot_summary_roc, plot_summary_prc
 
-
+#%%
 def main(args):
     # Setup output directory
     seed = args.seed
@@ -136,7 +138,7 @@ def main(args):
         for metric, df in all_test_metric_dfs.items():
             df.to_csv(f'{args.out_dir}/data_frames/{metric}.csv')
 
-
+#%%
 def get_parser():
     parser = argparse.ArgumentParser('Evaluate classical ML models on post-operative complications dataset.\n' +
                                      'Test metrics correspond to the results of a classification threshold optimised ' +
@@ -176,8 +178,10 @@ def get_parser():
 
     return parser
 
-
+#%%
 if __name__ == '__main__':
     arg_parser = get_parser()
     args = arg_parser.parse_args()
     main(args)
+
+# %%
