@@ -1,3 +1,5 @@
+
+#%%
 import graphviz
 import numpy as np
 import pandas as pd
@@ -69,3 +71,5 @@ def test_classification_model(model, X_train, y_train, X_test, y_test, model_nam
     interp_tpr = np.interp(thresholds, roc_plot.fpr, roc_plot.tpr, left=0.0)
 
     return test_metrics, (interp_tpr, prc_plot.precision, prc_plot.recall)
+
+# %%
